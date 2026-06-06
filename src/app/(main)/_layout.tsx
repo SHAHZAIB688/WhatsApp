@@ -4,7 +4,9 @@ import { Stack } from 'expo-router'
 
 const MainLayout = () => {
   return (
-    <Stack></Stack>
+    <Stack>
+      <Stack.Screen name="index" options={{ headerShown: false }} />
+    </Stack>
   )
 }
 

@@ -1,0 +1,71 @@
+import { View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native'
+import React from 'react'
+import ImagePath from '@/src/constants/ImagePath'
+import { moderateScale } from 'react-native-size-matters'
+
+const MessageCart = ({ name, message, time, avatar, messagecount }: any) => {
+    return (
+        <TouchableOpacity style={styles.btn} >
+            <View style={styles.leftContainer}>
+                <Image source={avatar} style={styles.userImage} />
+                <View >
+                    <Text style={styles.userName}>{name}</Text>
+                    <Text style={styles.message}>{message}</Text>
+                </View>
+            </View>
+            <View style={styles.rightContainer}>
+                <Text style={styles.message}>{time}</Text>
+                {
+                    messagecount && <View style={styles.messageContainer}>
+                        <Text style={styles.message}> {messagecount}</Text>
+                    </View>
+                }
+
+            </View>
+        </TouchableOpacity>
+    )
+}
+const styles = StyleSheet.create({
+    btn: {
+        width: '100%',
+        paddingVertical: moderateScale(10),
+        paddingHorizontal: moderateScale(20),
+        backgroundColor: 'white',
+    },
+    userImage: {
+        width: moderateScale(53),
+        height: moderateScale(53),
+        borderRadius: moderateScale(25),
+    },
+    leftContainer: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        gap: moderateScale(15),
+    },
+    rightContainer: {
+        position: 'absolute',
+        right: moderateScale(20),
+        top: moderateScale(15),
+        alignItems: 'flex-end',
+        gap: moderateScale(5),
+    },
+    userName: {
+        fontSize: moderateScale(16),
+        fontWeight: 'bold',
+    },
+    message: {
+        fontSize: moderateScale(14),
+        color: '#666',
+    },
+    messageContainer: {
+        backgroundColor: '#00A884',
+        width: moderateScale(20),
+        height: moderateScale(20),
+        borderRadius: moderateScale(10),
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginTop: moderateScale(5),
+    },
+})
+
+export default MessageCart
