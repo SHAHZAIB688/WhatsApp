@@ -3,14 +3,20 @@ import React from 'react'
 import ImagePath from '@/src/constants/ImagePath'
 import { moderateScale } from 'react-native-size-matters'
 
-const MessageCart = ({ name, message, time, avatar, messagecount }: any) => {
+const MessageCart = ({ name, message, time, avatar, messagecount, LogoComponent, rightIcon, callIcon }: any) => {
     return (
         <TouchableOpacity style={styles.btn} >
             <View style={styles.leftContainer}>
-                <Image source={avatar} style={styles.userImage} />
+                <View>
+                    <Image source={avatar} style={styles.userImage} />
+                    {LogoComponent}
+                </View>
                 <View >
                     <Text style={styles.userName}>{name}</Text>
-                    <Text style={styles.message}>{message}</Text>
+                    <View style={styles.callContainer}>
+                        {callIcon}
+                        <Text style={styles.message}>{message}</Text>
+                    </View>
                 </View>
             </View>
             <View style={styles.rightContainer}>
@@ -20,7 +26,7 @@ const MessageCart = ({ name, message, time, avatar, messagecount }: any) => {
                         <Text style={styles.message}> {messagecount}</Text>
                     </View>
                 }
-
+                {rightIcon}
             </View>
         </TouchableOpacity>
     )
@@ -48,6 +54,7 @@ const styles = StyleSheet.create({
         top: moderateScale(15),
         alignItems: 'flex-end',
         gap: moderateScale(5),
+        justifyContent: 'center',
     },
     userName: {
         fontSize: moderateScale(16),
@@ -66,6 +73,11 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         marginTop: moderateScale(5),
     },
+    callContainer:{
+        flexDirection: 'row',
+        alignItems: 'center',
+        gap: moderateScale(5),
+    }
 })
 
 export default MessageCart
