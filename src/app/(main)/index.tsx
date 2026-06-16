@@ -56,9 +56,6 @@ const Main = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    // paddingVertical: moderateScale(20),
     backgroundColor: 'white'
   },
   topBarHeader: {

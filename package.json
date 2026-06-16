@@ -11,12 +11,14 @@
     "lint": "expo lint"
   },
   "dependencies": {
+    "@codsod/react-native-chat": "^1.0.14",
     "@codsod/react-native-otp-input": "^1.0.7",
     "@expo/vector-icons": "^15.0.3",
     "@react-navigation/bottom-tabs": "^7.4.0",
     "@react-navigation/elements": "^2.6.3",
     "@react-navigation/native": "^7.1.8",
     "@reduxjs/toolkit": "^2.12.0",
+    "date-fns": "^4.4.0",
     "expo": "~54.0.35",
     "expo-constants": "~18.0.13",
     "expo-firebase-recaptcha": "^2.3.1",

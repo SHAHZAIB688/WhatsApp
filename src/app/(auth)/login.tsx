@@ -3,12 +3,12 @@ import AntDesign from '@expo/vector-icons/AntDesign'
 import { Link, router } from 'expo-router'
 import React, { useState } from 'react'
 import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
-import CountryPicker from 'react-native-country-picker-modal'
+import CountryPicker, { CountryCode } from 'react-native-country-picker-modal'
 import { moderateScale } from 'react-native-size-matters'
 
 const Login = () => {
   const [phone, setPhone] = useState('')
-  const [countryCode, setCountryCode] = useState('')
+  const [countryCode, setCountryCode] = useState<CountryCode>('US')
   const [pickerVisible, setPickerVisible] = useState(false)
   const [country, setCountry] = useState({ code: '', name: 'Select country', flag: '' })
 

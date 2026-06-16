@@ -3,9 +3,9 @@ import React from 'react'
 import ImagePath from '@/src/constants/ImagePath'
 import { moderateScale } from 'react-native-size-matters'
 
-const MessageCart = ({ name, message, time, avatar, messagecount, LogoComponent, rightIcon, callIcon }: any) => {
+const MessageCart = ({ name, message, time, avatar, messagecount, LogoComponent, rightIcon, callIcon, onPress }: any) => {
     return (
-        <TouchableOpacity style={styles.btn} >
+        <TouchableOpacity style={styles.btn} onPress={onPress} activeOpacity={0.7}>
             <View style={styles.leftContainer}>
                 <View>
                     <Image source={avatar} style={styles.userImage} />

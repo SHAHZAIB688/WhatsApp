@@ -1,38 +1,42 @@
-import { View, Text, StyleSheet, FlatList } from 'react-native'
+import { StyleSheet, FlatList } from 'react-native'
 import React from 'react'
+import { useRouter } from 'expo-router'
 import MessageCart from './MessageCart'
-import ImagePath from '@/src/constants/ImagePath'
+import { CHAT_CONTACTS } from '@/src/constants/chatData'
 
 const Chat = () => {
-    const data=[
-        {
-            id: 1,
-            name: 'John Doe',
-            message: 'Hello, how are you?',
-            time: '10:30 AM',
-            avatar: ImagePath.whatsapp_logo,
-            messagecount:1
-        },
-        {
-            id: 2,
-            name: 'Jane Smith',
-            message: 'I am doing great!',
-            time: '11:00 AM',
-            avatar: ImagePath.whatsapp_logo,
-            messagecount: 0
-        }
-    ]
+  const router = useRouter()
+
   return (
-    <FlatList data={data} renderItem={({ item }) => <MessageCart {...item} />} style={styles.container} />
+    <FlatList
+      data={CHAT_CONTACTS}
+      keyExtractor={(item) => item.id}
+      renderItem={({ item }) => (
+        <MessageCart
+          name={item.name}
+          message={item.message}
+          time={item.time}
+          avatar={item.avatar}
+          messagecount={item.messagecount}
+          onPress={() =>
+            router.push({
+              pathname: '/(main)/chat/[id]',
+              params: { id: item.id },
+            })
+          }
+        />
+      )}
+      style={styles.container}
+    />
   )
 }
 
 const styles = StyleSheet.create({
-  container:{
-        flex: 1,
-        backgroundColor: 'white',
-        width: '100%',
-  }
+  container: {
+    flex: 1,
+    backgroundColor: 'white',
+    width: '100%',
+  },
 })
 
 export default Chat
