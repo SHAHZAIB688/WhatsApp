@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 
 SplashScreen.preventAutoHideAsync();
 export default function RootLayout() {
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   // const access_token = storage.getString("token");
   useEffect(() => {
     SplashScreen.hideAsync();
